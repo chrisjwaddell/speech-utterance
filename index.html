@@ -567,8 +567,6 @@
         })
 
         SpeechSynth.voice = voices[0]
-
-        elText.setSelectionRange(0, 0)
     }
 
 
@@ -614,6 +612,7 @@
         elText.value = poem
 
         elText.focus()
+        elText.setSelectionRange(0, 0)
     }
 
     initializeDOM()
