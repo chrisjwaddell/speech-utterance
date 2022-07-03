@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <title>SpeechSynthesisUtterance</title>
+    <script src="./scripts/speechsynthesisutterance.js"></script>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eeeeee;
+            margin: 0;
+        }
+
+        *,
+        ::before,
+        ::after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+        }
+
+
+        .o-flex {
+            display: flex;
+        }
+
+        .o-flex.center {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .c-btn {
+            display: inline-block;
+            vertical-align: middle;
+            font: inherit;
+            text-align: center;
+            margin: 0;
+            cursor: pointer;
+            padding: 12px 24px;
+            transition: background-color 120ms ease-in-out;
+            border-radius: 3px;
+        }
+
+        .mac {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .green {
+            background-color: #33dd44;
+            text-align: center;
+        }
+
+        .red {
+            background-color: #ee4455;
+        }
+
+
+        .top {
+            margin-top: 30px;
+        }
+
+        .show {
+            display: inline-block !important;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .isvisible {
+            visibility: visible !important;
+        }
+
+        .isinvisible {
+            visibility: hidden !important;
+        }
+
+        .disabled {
+            max-width: 400px;
+            visibility: hidden;
+            color: #ff1111;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #ffa000;
+            margin: 0;
+            padding: 8px;
+            font-family: arial, helvetica, sans-serif;
+        }
+
+        .btn {
+            width: 50px;
+            height: 45px;
+            padding: unset;
+            margin-bottom: 10px;
+            border: 2px solid #886600;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        button svg {
+            pointer-events: none;
+        }
+
+
+        .controls {
+            width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #dddddd;
+            padding: 10px;
+            border: 4px solid #ffa000;
+            box-sizing: border-box;
+        }
+
+        .gap {
+            display: inline-block;
+            width: 30px;
+        }
+
+        .controls label {
+            display: inline-block;
+            width: 3.25rem;
+            font-size: 16px;
+            margin: 10px auto;
+            position: relative;
+            top: -70%;
+        }
+
+
+        input[type="range"] {
+            width: 15rem;
+            height: 1rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: transparent;
+            font-size: 8px;
+            border-width: 0px;
+            outline-offset: -1px;
+            line-height: normal;
+            margin-top: 20px;
+        }
+
+
+        input[type=range]::-moz-range-thumb {
+            background: radial-gradient(#ffa000 35%, white 45%) content-box;
+        }
+
+        input[type=range]::-moz-range-track {
+            border: solid 1px #ffa000;
+            border-radius: 25px;
+            height: 0.25em;
+        }
+
+        input[type=range]::-moz-range-track {
+            background-color: #ffa000;
+        }
+
+        input[type=range]::-moz-focus-outer {
+            border: 0;
+        }
+
+        /* Webkit */
+        input[type=range]::-webkit-slider-thumb {
+            margin-top: -0.5em;
+            border: none;
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            border: 1px solid #c8c8c8;
+            box-shadow: 0 1px 0.125em #585858, inset 0 1px 1px #f8f8f8;
+            background-size: 100%;
+            cursor: ew-resize;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb:active {
+            cursor: grabbing;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            background: radial-gradient(#ffa000 35%, white 45%) content-box;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            position: relative;
+            box-sizing: border-box;
+            padding: 0.75em;
+            width: 32em;
+            height: 2.5em;
+            border-radius: 1.25em;
+            border-radius: 25px;
+            border: 1px solid #ffa000;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            background: radial-gradient(#ffa000 35%, #ff7777 71%) content-box, linear-gradient(#ffffff, #ffffff) border-box;
+        }
+
+
+        /* IE */
+        input[type=range]::-ms-thumb {
+            margin-top: 0em;
+            border: none;
+            padding: 0.25em;
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            box-shadow: 0 1px 0.125em #585858, inset 0 1px 1px #f8f8f8;
+            background: radial-gradient(#ffa000 35%, #cb8037 71%) content-box, linear-gradient(#d4d4d4, #bfbfbf) border-box;
+            cursor: ew-resize;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .play {
+            width: 350px;
+            margin-top: 50px;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff;
+            padding: 15px;
+            font-family: "Droid Sans Mono", monospace;
+            font-size: 18px;
+            overflow: auto;
+        }
+
+        textarea::-moz-selection {
+            background: #ffa000;
+        }
+
+        textarea::selection {
+            background: #ffa000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Text to Speech</h1>
+    <div class="container top">
+        <div class="controls">
+            <div class="controls__voices">
+                <label for="voices">Voice</label>
+                <select id="voices">
+                </select>
+            </div>
+
+            <div class="">
+                <label for="speed">Speed</label>
+                <input id="speed" type="range" min="0.2" max="8" step="0.2" value="1">
+            </div>
+            <div class="">
+                <label for="pitch">Pitch</label>
+                <input id="pitch" type="range" min="0" max="2" step="0.1" value="1">
+            </div>
+
+        </div>
+
+        <div class="play mac">
+            <button class="c-btn btn green">
+                <div class="o-flex center">
+                    <svg class="show" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
+                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 20 80 50 20 80z" fill="#ffffff" />
+                    </svg>
+                    <svg class="hide" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
+                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M25 20 40 20 40 80 25 80z" fill="#ffffff" />
+                        <path d="M60 20 75 20 75 80 60 80z" fill="#ffffff" />
+                    </svg>
+                </div>
+            </button>
+            <button class="c-btn btn red stop">
+                <div class="o-flex center">
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
+                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M30,30 70,30 70,70 30,70 z" fill="#ffffff" />
+                    </svg>
+                </div>
+            </button>
+
+            <div class="gap"></div>
+            <button class="c-btn btn green prev">
+                <div class="o-flex center">
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
+                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M15,20 25,20 25,80 15,80 15,20 15,80z" fill="#ffffff" />
+                        <path d="M25,50 85,20 85,80 25,50z" fill="#ffffff" />
+                    </svg>
+                </div>
+            </button>
+            <button class="c-btn btn green next">
+                <div class="o-flex center">
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
+                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M75,50 15,20 15,80 75,50z" fill="#ffffff" />
+                        <path d="M85,20 75,20 75,80 85,80 85,20 85,80z" fill="#ffffff" />
+                    </svg>
+                </div>
+            </button>
+
+        </div>
+
+        <textarea placeholder="Paste or write something in this box and click 'Play'"
+            style="font-family: sans-serif;outline: none;border-color: #ffa000;border-radius: 10px;resize: none;width:80vw;height: calc(100vh - 300px);"></textarea>
+    </div>
+
+
+</body>
+<script>
+    const synth = window.speechSynthesis
+
+    const elVoices = document.querySelector("#voices")
+    const elSpeed = document.querySelector("#speed")
+    const elPitch = document.querySelector("#pitch")
+
+    const elBtn = document.querySelector(".c-btn")
+    const elBtnSVG = document.querySelectorAll(".play svg")
+    const elBtnStop = document.querySelector(".btn.stop")
+    const elBtnPrev = document.querySelector(".btn.prev")
+    const elBtnNext = document.querySelector(".btn.next")
+
+    const elText = document.querySelector("textarea")
+
+    //Global variables
+    let txtPos = 0;
+    let shouldSpeak = false
+    let wholeText = ''
+    let playing = false
+    let arrStart = []
+
+    if ('speechSynthesis' in window) {
+        // SpeechSynth.init has a this object passed to it which makes
+        // SpeechSynth.init run voiceList after the voice list is generated
+        SpeechSynth.init({
+            onVoiceList: function () {
+                voiceList()
+            }
+        });
+    } else {
+        alert('It seems that TTS is not supported by your browser. Try it on Chrome.');
+    }
+
+
+    elSpeed.addEventListener('change', function () {
+        SpeechSynth.setRate(this.value)
+        elText.focus()
+    }, false);
+
+
+    elPitch.addEventListener('change', function () {
+        SpeechSynth.setPitch(this.value)
+        elText.focus()
+    }, false);
+
+    elVoices.addEventListener('change', function () {
+        SpeechSynth.voice = SpeechSynth.setVoice(elVoices.value)
+        elText.focus()
+    }, false);
+
+
+
+    // Text is split into sentences. A new SpeechSynthesisUtterance is created
+    // for each sentence so that the user can change the speed, voice and pitch while
+    // text is being spoken.
+    // arrStart is the text start position of each of these Utterances so that it can
+    // highlight the text.
+    function textArrays() {
+        let arrText = elText.value.split(/[.|\n]/)
+        let acc = 0
+
+        wholeText = elText.value.split(/[.|\n]/).filter(cv => (cv !== "") && (cv !== null) && (cv !== undefined))
+
+        acc = 0
+        for (let i = 0; i < arrText.length; i++) {
+            if ((arrText[i] === "") || (arrText[i] === null) || (arrText[i] === undefined)) {
+                acc++
+            } else {
+                arrStart.push(acc)
+                acc += (arrText[i].length + 1)
+            }
+        }
+
+    }
+
+
+    function handleTalk() {
+        if (shouldSpeak === false) {
+            textArrays()
+            shouldSpeak = true
+
+            elText.focus()
+            startIteration()
+        }
+
+        if (playing) {
+            // Pause
+            playingBtnPause()
+            synth.pause()
+        } else {
+            // Play
+            playingBtnPlay()
+
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
+        }
+
+        playing = !playing
+        elText.focus()
+    }
+
+
+    function playingBtnPause() {
+        elBtnSVG[0].classList.add("show")
+        elBtnSVG[0].classList.remove("hide")
+        elBtnSVG[1].classList.add("hide")
+        elBtnSVG[1].classList.remove("show")
+    }
+
+    function playingBtnPlay() {
+        elBtnSVG[0].classList.add("hide")
+        elBtnSVG[0].classList.remove("show")
+        elBtnSVG[1].classList.add("show")
+        elBtnSVG[1].classList.remove("hide")
+    }
+
+
+    function playingStop() {
+        txtPos = 0;
+        shouldSpeak = false
+        playingBtnPause()
+        playing = false
+        SpeechSynth.stop()
+        elText.focus()
+    }
+
+    function playPrevious() {
+        SpeechSynth.stop()
+        playing = false;
+        if (txtPos > 0) txtPos--
+        if (txtPos > 0) txtPos--
+        window.speechSynthesis.resume();
+    }
+
+    function playNext() {
+        SpeechSynth.stop()
+        playing = false;
+        if (txtPos < wholeText.len) txtPos++;
+        window.speechSynthesis.resume();
+    }
+
+    elBtnStop.addEventListener('click', function () {
+        playingStop()
+        elText.setSelectionRange(0, 0)
+        elText.focus()
+    }, false);
+
+    elBtnPrev.addEventListener('click', function () {
+        playPrevious()
+        elText.focus()
+    }, false);
+
+    elBtnNext.addEventListener('click', function () {
+        playNext()
+        elText.focus()
+    }, false);
+
+
+
+
+    if (!synth) {
+        console.log("Your browser doesn't support speech Synthesis")
+        elBtn.toggleAttribute("disabled")
+        elBtn.style.opacity = "0.6"
+
+    } else {
+        elBtn.addEventListener("click", handleTalk);
+    }
+
+
+    //The following function triggered when play/pause button is clicked
+    function startIteration() {
+        if (shouldSpeak) {
+            if (wholeText.length > txtPos) {
+                if (wholeText[txtPos].length > 0) {
+                    // This tells the SpeechSynth library to run
+                    // startIteration() when the 'end' event is triggered
+                    // on the Utterance. startIteration tells it to read the next
+                    // sentence until all sentences have been read.
+                    SpeechSynth.utteranceSettings({
+                        text: wholeText[txtPos],
+                        onEnd: function () {
+                            startIteration()
+                        }
+                    });
+                    elText.focus();
+                    elText.setSelectionRange(arrStart[txtPos], arrStart[txtPos] + wholeText[
+                        txtPos].length)
+
+                    txtPos++
+
+                } else {
+                    alert(
+                        'Please write something for me to read :)');
+                }
+            } else {
+                shouldSpeak = false;
+                playing = false;
+                SpeechSynth.stop();
+                txtPos = 0;
+                playingBtnPause()
+                elText.setSelectionRange(0, 0)
+            }
+        }
+    }
+
+
+    function voiceList() {
+        // voice list is put to the SpeechSynth.voices array
+        let voices = SpeechSynth.voices
+
+        voices.forEach(function (cv) {
+            let opt = document.createElement("option")
+            opt.textContent = cv.name
+            opt.dataset.lang = cv.lang
+            elVoices.appendChild(opt)
+        })
+
+        SpeechSynth.voice = voices[0]
+    }
+
+
+    let poem = `If
+    by Rudyard Kipling
+    If you can keep your head when all about you
+    Are losing theirs and blaming it on you;
+    If you can trust yourself when all men doubt you,
+    But make allowance for their doubting too:
+    If you can wait and not be tired by waiting,
+    Or, being lied about, don't deal in lies,
+    Or being hated don't give way to hating,
+    And yet don't look too good, nor talk too wise;
+
+    If you can dream---and not make dreams your master;
+    If you can think---and not make thoughts your aim,
+    If you can meet with Triumph and Disaster
+    And treat those two impostors just the same:
+    If you can bear to hear the truth you've spoken
+    Twisted by knaves to make a trap for fools,
+    Or watch the things you gave your life to, broken,
+    And stoop and build'em up with worn-out tools;
+
+    If you can make one heap of all your winnings
+    And risk it on one turn of pitch-and-toss,
+    And lose, and start again at your beginnings,
+    And never breathe a word about your loss:
+    If you can force your heart and nerve and sinew
+    To serve your turn long after they are gone,
+    And so hold on when there is nothing in you
+    Except the Will which says to them: "Hold on!"
+
+    If you can talk with crowds and keep your virtue,
+    Or walk with Kings---nor lose the common touch,
+    If neither foes nor loving friends can hurt you,
+    If all men count with you, but none too much:
+    If you can fill the unforgiving minute
+    With sixty seconds' worth of distance run,
+    Yours is the Earth and everything that's in it,
+    And---which is more---you'll be a Man, my son!`
+
+    function initializeDOM() {
+        elText.value = poem
+
+        elText.focus()
+    }
+
+    initializeDOM()
+</script>
+
+</html>
