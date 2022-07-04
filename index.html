@@ -158,7 +158,7 @@
             -moz-appearance: none;
             appearance: none;
             background: transparent;
-            font-size: 8px;
+            font-size: 16px;
             border-width: 0px;
             outline-offset: -1px;
             line-height: normal;
@@ -185,11 +185,28 @@
         }
 
         /* Webkit */
+        input[type=range]::-webkit-slider-runnable-track {
+            position: relative;
+            box-sizing: border-box;
+            padding: 0.25em;
+            width: 32em;
+            height: 0.75em;
+            border-radius: 25px;
+            border: 1px solid #ffa000;
+            margin: 0;
+            padding: 0;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            background: radial-gradient(#ffa000 35%, #ff7777 71%) content-box, linear-gradient(#ffffff, #ffffff) border-box;
+        }
+
+
         input[type=range]::-webkit-slider-thumb {
             margin-top: -0.5em;
             border: none;
-            width: 2em;
-            height: 2em;
+            width: 1.5em;
+            height: 1.5em;
             border-radius: 50%;
             border: 1px solid #c8c8c8;
             box-shadow: 0 1px 0.125em #585858, inset 0 1px 1px #f8f8f8;
@@ -209,24 +226,11 @@
             background: radial-gradient(#ffa000 35%, white 45%) content-box;
         }
 
-        input[type=range]::-webkit-slider-runnable-track {
-            position: relative;
-            box-sizing: border-box;
-            padding: 0.75em;
-            width: 32em;
-            height: 2.5em;
-            border-radius: 1.25em;
-            border-radius: 25px;
-            border: 1px solid #ffa000;
-        }
-
-        input[type=range]::-webkit-slider-runnable-track {
-            background: radial-gradient(#ffa000 35%, #ff7777 71%) content-box, linear-gradient(#ffffff, #ffffff) border-box;
-        }
-
 
         /* IE */
         input[type=range]::-ms-thumb {
+            font-size: 10px;
+
             margin-top: 0em;
             border: none;
             padding: 0.25em;
@@ -254,7 +258,7 @@
             background-color: #fff;
             padding: 15px;
             font-family: "Droid Sans Mono", monospace;
-            font-size: 18px;
+            font-size: 16px;
             overflow: auto;
         }
 
