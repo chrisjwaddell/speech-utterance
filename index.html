@@ -282,11 +282,15 @@
 
         @media screen and (max-width: 440px) {
             .controls {
-                width: 300px;
+                width: 100%;
             }
 
             #voices {
-                width: 275px;
+                width: 100%;
+            }
+
+            textarea {
+                width: 90% !important;
             }
 
         }
@@ -367,7 +371,7 @@
         </div>
 
         <textarea placeholder="Paste or write something in this box and click 'Play'"
-            style="font-family: sans-serif;outline: none;border-color: #ffa000;border-radius: 10px;resize: none;width:80vw;height: calc(100vh - 300px);"></textarea>
+            style="font-family: sans-serif;outline: none;border-color: #ffa000;border-radius: 10px;resize: none;width:80vw;height: calc(100vh - 300px); min-width: 300px;"></textarea>
     </div>
 
 
