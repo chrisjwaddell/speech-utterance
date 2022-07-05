@@ -147,7 +147,8 @@
 
         .controls label {
             display: inline-block;
-            width: 3.25rem;
+            /* width: 3.25rem; */
+            width: 45px;
             font-size: 1rem;
             margin: 10px auto;
             position: relative;
@@ -288,21 +289,24 @@
             /* @media (min-width: 10px) and (max-width: 440px) { */
             /* @media (min-width: 10px) and (max-device-width: 440px) { */
 
-            label {
-                width: 80px;
-            }
+            /* label {
+                width: 45px !important;
+            } */
 
-            .controls,
-            .controls__voices {
+            .controls {
                 width: 90% !important;
             }
 
+            .controls__voices {
+                width: calc(100% - 45px) !important;
+            }
+
             #voices {
-                width: calc(100% - 80px) !important;
+                width: calc(100% - 45px) !important;
             }
 
             input[type="range"] {
-                width: calc(100% - 80px) !important;
+                width: calc(100% - 45px) !important;
             }
 
 
