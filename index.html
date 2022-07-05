@@ -288,14 +288,23 @@
             /* @media (min-width: 10px) and (max-width: 440px) { */
             /* @media (min-width: 10px) and (max-device-width: 440px) { */
 
+            label {
+                width: 80px;
+            }
+
             .controls,
             .controls__voices {
                 width: 90% !important;
             }
 
             #voices {
-                width: 90% !important;
+                width: calc(90% - 80px) !important;
             }
+
+            input[type="range"] {
+                width: calc(90% - 80px) !important;
+            }
+
 
             textarea {
                 width: 90% !important;
