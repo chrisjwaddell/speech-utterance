@@ -110,20 +110,20 @@
         }
 
         .btn {
-            width: 65px;
+            width: 45px;
             height: 45px;
             padding: unset;
-            margin-bottom: 10px;
-            margin-right: 10px;
+            margin: 0 10px 10px 0;
             border: 2px solid #886600;
             color: #ffffff;
             font-weight: 600;
             font-size: 20px;
-            border-radius: 10px;
+            border-radius: 50%;
         }
 
         button svg {
             pointer-events: none;
+            padding: 5px;
         }
 
 
@@ -163,7 +163,7 @@
             border-width: 0px;
             outline-offset: -1px;
             line-height: normal;
-            margin-top: 20px;
+            /* margin-top: 20px; */
         }
 
 
@@ -231,7 +231,6 @@
         /* IE */
         input[type=range]::-ms-thumb {
             font-size: 10px;
-
             margin-top: 0em;
             border: none;
             padding: 0.25em;
@@ -246,17 +245,22 @@
             appearance: none;
         }
 
-        .controls__btns {
-            width: 370px;
-            margin-top: 50px;
+        .play {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
             margin-bottom: 5px;
+        }
+
+        .play__btns {
+            /* width: 100%;
             margin-left: auto;
-            margin-right: auto;
+            margin-right: auto; */
         }
 
         textarea {
             display: block;
-            width: 80%;
+            /* width: 80%; */
             margin-left: auto;
             margin-right: auto;
             background-color: #fff;
@@ -272,6 +276,19 @@
 
         textarea::selection {
             background: #ffa000;
+        }
+
+
+
+        @media screen and (max-width: 400px) {
+            .controls {
+                width: 300px;
+            }
+
+            #voices {
+                width: 275px;
+            }
+
         }
     </style>
 </head>
@@ -298,16 +315,17 @@
 
         </div>
 
-        <div class="controls__btns">
+        <div class="play mac">
+            <!-- <div class="play__btns"> -->
             <button class="c-btn btn green">
                 <div class="o-flex center">
-                    <svg class="show" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
-                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    <svg class="show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M20 20 80 50 20 80z" fill="#ffffff" />
                     </svg>
-                    <svg class="hide" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
-                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    <svg class="hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M25 20 40 20 40 80 25 80z" fill="#ffffff" />
                         <path d="M60 20 75 20 75 80 60 80z" fill="#ffffff" />
@@ -316,8 +334,8 @@
             </button>
             <button class="c-btn btn red stop">
                 <div class="o-flex center">
-                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
-                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M30,30 70,30 70,70 30,70 z" fill="#ffffff" />
                     </svg>
@@ -327,8 +345,8 @@
             <div class="gap"></div>
             <button class="c-btn btn green prev">
                 <div class="o-flex center">
-                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
-                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M15,20 25,20 25,80 15,80 15,20 15,80z" fill="#ffffff" />
                         <path d="M25,50 85,20 85,80 25,50z" fill="#ffffff" />
@@ -337,14 +355,15 @@
             </button>
             <button class="c-btn btn green next">
                 <div class="o-flex center">
-                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 100 100"
-                        aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M75,50 15,20 15,80 75,50z" fill="#ffffff" />
                         <path d="M85,20 75,20 75,80 85,80 85,20 85,80z" fill="#ffffff" />
                     </svg>
                 </div>
             </button>
+            <!-- </div> -->
         </div>
 
         <textarea placeholder="Paste or write something in this box and click 'Play'"
