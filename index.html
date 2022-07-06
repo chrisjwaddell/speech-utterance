@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpeechSynthesisUtterance</title>
     <script src="./scripts/speechsynthesisutterance.js"></script>
     <style>
@@ -107,7 +111,7 @@
             text-align: center;
             background-color: #ffa000;
             margin: 0;
-            padding: 15x;
+            padding: 15px;
             font-family: arial, helvetica, sans-serif;
         }
 
@@ -146,7 +150,8 @@
 
         .controls label {
             display: inline-block;
-            width: 3.25rem;
+            /* width: 3.25rem; */
+            width: 55px;
             font-size: 1rem;
             margin: 10px auto;
             position: relative;
@@ -283,20 +288,49 @@
 
 
 
-        @media screen and (max-width: 440px) {
 
-            .controls,
-            .controls__voices {
-                width: 100% !important;
+        .controls__voices {
+            width: calc(90% - 55px) !important;
+        }
+
+        #voices {
+            width: calc(90% - 55px) !important;
+        }
+
+        input[type="range"] {
+            width: calc(90% - 55px) !important;
+        }
+
+
+
+        @media screen and (max-width: 440px) {
+            /* @media (min-width: 10px) and (max-width: 440px) { */
+            /* @media (min-width: 10px) and (max-device-width: 440px) { */
+
+            /* label {
+                width: 45px !important;
+            } */
+
+            .controls {
+                width: 90% !important;
+            }
+
+            /* .controls__voices {
+                width: calc(100% - 45px) !important;
             }
 
             #voices {
-                width: 100% !important;
+                width: calc(100% - 45px) !important;
             }
+
+            input[type="range"] {
+                width: calc(100% - 45px) !important;
+            } */
+
 
             textarea {
                 width: 90% !important;
-                height: calc(100vh - 400px) !important;
+                height: calc(100vh - 350px) !important;
             }
 
         }
