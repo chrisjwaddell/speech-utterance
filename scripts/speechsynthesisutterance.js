@@ -7,7 +7,7 @@ let SpeechSynth = {
     pitch: 1,
     voice: null,
     voices: null,
-    lang: "en-GB",
+    lang: "en",
     utteranceId: 0,
     speechSynthCounter: 0,
     utterance: null,
@@ -36,6 +36,8 @@ let SpeechSynth = {
         if (voices != null && voices.length > 0) {
             if (this.voices == null || this.voices.length == 0) {
                 this.voices = voices;
+                // default is the first English voice it can find
+                this.voice = this.voices.find(cv => cv.lang.startsWith("en")) || this.voices[0]
             }
 
             if (listener && listener.onVoiceList) {
@@ -96,7 +98,7 @@ let SpeechSynth = {
         utterance.text = listener.text;
         utterance.rate = this.rate;
         utterance.voice = this.voice;
-        utterance.lang = this.voice.lang;
+        utterance.lang = this.voice.lang || this.lang;
         utterance.pitch = this.pitch;
         utterance.volume = 1;
 
