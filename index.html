@@ -143,11 +143,6 @@
             box-sizing: border-box;
         }
 
-        .gap {
-            display: inline-block;
-            width: 50px;
-        }
-
         .controls label {
             display: inline-block;
             /* width: 3.25rem; */
@@ -158,9 +153,26 @@
             top: -70%;
         }
 
+        .gap {
+            display: inline-block;
+            width: 50px;
+        }
+
+
+        .controls__voices {
+            width: calc(90% - 55px) !important;
+        }
+
+        #voices {
+            width: calc(90% - 55px) !important;
+        }
+
+        input[type="range"] {}
+
 
         input[type="range"] {
-            width: 100%;
+            /* width: 100%; */
+            width: calc(90% - 55px) !important;
             height: 1rem;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -170,7 +182,6 @@
             border-width: 0px;
             outline-offset: -1px;
             line-height: normal;
-            /* margin-top: 20px; */
             padding: 5px;
         }
 
@@ -260,15 +271,9 @@
             margin-bottom: 5px;
         }
 
-        .play__btns {
-            /* width: 100%;
-            margin-left: auto;
-            margin-right: auto; */
-        }
 
         textarea {
             display: block;
-            /* width: 80%; */
             margin-left: auto;
             margin-right: auto;
             background-color: #fff;
@@ -287,52 +292,16 @@
         }
 
 
-
-
-        .controls__voices {
-            width: calc(90% - 55px) !important;
-        }
-
-        #voices {
-            width: calc(90% - 55px) !important;
-        }
-
-        input[type="range"] {
-            width: calc(90% - 55px) !important;
-        }
-
-
-
         @media screen and (max-width: 440px) {
-            /* @media (min-width: 10px) and (max-width: 440px) { */
-            /* @media (min-width: 10px) and (max-device-width: 440px) { */
-
-            /* label {
-                width: 45px !important;
-            } */
-
             .controls {
                 width: 90% !important;
             }
-
-            /* .controls__voices {
-                width: calc(100% - 45px) !important;
-            }
-
-            #voices {
-                width: calc(100% - 45px) !important;
-            }
-
-            input[type="range"] {
-                width: calc(100% - 45px) !important;
-            } */
 
 
             textarea {
                 width: 90% !important;
                 height: calc(100vh - 350px) !important;
             }
-
         }
     </style>
 </head>
