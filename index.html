@@ -20,6 +20,7 @@
             font-size: 16px;
             background-color: #eeeeee;
             margin: 0;
+            min-width: 350px;
         }
 
         *,
@@ -101,7 +102,7 @@
         }
 
         .disabled {
-            max-width: 400px;
+            max-width: 350px;
             visibility: hidden;
             color: #ff1111;
         }
@@ -132,9 +133,12 @@
             padding: 5px;
         }
 
+        button svg path {
+            fill: #ffffff;
+        }
 
         .controls {
-            width: 400px;
+            width: 350px;
             margin-left: auto;
             margin-right: auto;
             background-color: #dddddd;
@@ -160,19 +164,22 @@
 
 
         .controls__voices {
-            width: calc(90% - 55px) !important;
+            /* width: calc(90% - 55px); */
         }
 
         #voices {
-            width: calc(90% - 55px) !important;
+            width: calc(90% - 55px);
         }
 
-        input[type="range"] {}
+        #voices option {
+            /* width: calc(90% - 55px); */
+            width: 100%;
+        }
 
 
         input[type="range"] {
             /* width: 100%; */
-            width: calc(90% - 55px) !important;
+            width: calc(90% - 55px);
             height: 1rem;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -293,8 +300,34 @@
 
 
         @media screen and (max-width: 440px) {
-            .controls {
-                width: 90% !important;
+
+            /* .controls,
+            .controls__voices {
+                width: 90%;
+                width: calc(90% - 55px);
+            } */
+
+            .flex--mobile {
+                display: flex;
+                flex-direction: column;
+            }
+
+            input,
+            label,
+            select {
+                flex: 1;
+            }
+
+            .controls label {
+                margin-bottom: 0px;
+            }
+
+            #voices,
+            .controls select,
+            .controls label,
+            .controls input[type="range"] {
+                width: 100%;
+                padding: 0px;
             }
 
 
@@ -311,17 +344,17 @@
     <h1>Text to Speech</h1>
     <div class="container top">
         <div class="controls">
-            <div class="controls__voices">
+            <div class="controls__voices flex--mobile">
                 <label for="voices">Voice</label>
                 <select id="voices">
                 </select>
             </div>
 
-            <div class="">
+            <div class="flex--mobile">
                 <label for="speed">Speed</label>
                 <input id="speed" type="range" min="0.2" max="8" step="0.2" value="1">
             </div>
-            <div class="">
+            <div class="flex--mobile">
                 <label for="pitch">Pitch</label>
                 <input id="pitch" type="range" min="0" max="2" step="0.1" value="1">
             </div>
@@ -380,7 +413,7 @@
         </div>
 
         <textarea placeholder="Paste or write something in this box and click 'Play'"
-            style="font-family: sans-serif;outline: none;border-color: #ffa000;border-radius: 10px;resize: none;width:80vw;height: calc(100vh - 300px); min-width: 300px;"></textarea>
+            style="font-family: sans-serif;outline: none;border-color: #ffa000;border-radius: 10px;resize: none;width:80vw;height: calc(100vh - 350px); min-width: 350px;"></textarea>
     </div>
 
 
