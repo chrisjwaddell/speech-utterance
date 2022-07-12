@@ -412,7 +412,8 @@
             <!-- </div> -->
         </div>
 
-        <textarea placeholder="Paste or write something in this box and click 'Play'"
+        <textarea
+            placeholder="Type or copy and Paste something in here and press Play. A voice will read it out aloud for you. Enjoy."
             style="font-family: sans-serif;outline: none;border-color: #ffa000;border-radius: 10px;resize: none;width:80vw;height: calc(100vh - 350px); min-width: 350px;"></textarea>
     </div>
 
@@ -641,47 +642,34 @@
         SpeechSynth.voice = voices[0]
     }
 
+    let slogans = `You can type in anything you want in here. As a placeholder, I've put in some funny slogans.
+If I agreed with you, we'd both be wrong.
+Abandon the search for Truth; settle for a good fantasy.
+When nothing goes right……..go left.
+Its much easier to apologize then it is to get permission.
+Behind every Great man is a woman rolling her eyes.
+When all else fails, lower your standards.
+We never really grow up, we only learn how to act in public.
+An onion a day keeps everyone away.
 
-    let poem = `If
-    by Rudyard Kipling
-    If you can keep your head when all about you
-    Are losing theirs and blaming it on you;
-    If you can trust yourself when all men doubt you,
-    But make allowance for their doubting too:
-    If you can wait and not be tired by waiting,
-    Or, being lied about, don't deal in lies,
-    Or being hated don't give way to hating,
-    And yet don't look too good, nor talk too wise;
+A bartender is just a pharmacist with a limited inventory.
+Nobody is ugly after 2 a m.
+Smoking helps you relax in the graveyard.
 
-    If you can dream---and not make dreams your master;
-    If you can think---and not make thoughts your aim,
-    If you can meet with Triumph and Disaster
-    And treat those two impostors just the same:
-    If you can bear to hear the truth you've spoken
-    Twisted by knaves to make a trap for fools,
-    Or watch the things you gave your life to, broken,
-    And stoop and build'em up with worn-out tools;
+I have PTSD and a handgun.Any Questions?
+Age is a very high price to pay for maturity.
 
-    If you can make one heap of all your winnings
-    And risk it on one turn of pitch-and-toss,
-    And lose, and start again at your beginnings,
-    And never breathe a word about your loss:
-    If you can force your heart and nerve and sinew
-    To serve your turn long after they are gone,
-    And so hold on when there is nothing in you
-    Except the Will which says to them: "Hold on!"
+You don't know what you have until it's gone.For example, toilet paper.
+A bank is a place that will lend you money, if you can prove that you don't need it.
+Whenever I find the key to success, someone changes the lock.
+Campers: Nature's way of feeding mosquitoes.
+When there's a will, I want to be in it!
+Dear math grow up and solve your Problems.
+I hate math but I love counting money.`
 
-    If you can talk with crowds and keep your virtue,
-    Or walk with Kings---nor lose the common touch,
-    If neither foes nor loving friends can hurt you,
-    If all men count with you, but none too much:
-    If you can fill the unforgiving minute
-    With sixty seconds' worth of distance run,
-    Yours is the Earth and everything that's in it,
-    And---which is more---you'll be a Man, my son!`
 
     function initializeDOM() {
-        elText.value = poem
+        elText.value = slogans
 
         elText.focus()
         elText.setSelectionRange(0, 0)
