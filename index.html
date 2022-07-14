@@ -81,6 +81,11 @@
         }
 
 
+        .red.stop {
+            background-image: url("data:image/svg+xml, %3Csvg class='' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' aria-hidden='true' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30,30 70,30 70,70 30,70 z' fill='%23ffffff' /%3E%3C/svg%3E");
+        }
+
+
         .top {
             margin-top: 30px;
         }
@@ -373,19 +378,21 @@
                     <svg class="hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <path d="M25 20 40 20 40 80 25 80z" fill="#ffffff" />
-                        <path d="M60 20 75 20 75 80 60 80z" fill="#ffffff" />
+                        <g>
+                            <path d="M25 20 40 20 40 80 25 80z" fill="#ffffff" />
+                            <path d="M60 20 75 20 75 80 60 80z" fill="#ffffff" />
+                        </g>
                     </svg>
                 </div>
             </button>
             <button class="c-btn btn red stop">
-                <div class="o-flex center">
+                <!-- <div class="o-flex center">
                     <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M30,30 70,30 70,70 30,70 z" fill="#ffffff" />
                     </svg>
-                </div>
+                </div> -->
             </button>
 
             <div class="gap"></div>
@@ -394,8 +401,10 @@
                     <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <path d="M15,20 25,20 25,80 15,80 15,20 15,80z" fill="#ffffff" />
-                        <path d="M25,50 85,20 85,80 25,50z" fill="#ffffff" />
+                        <g>
+                            <path d="M15,20 25,20 25,80 15,80 15,20 15,80z" fill="#ffffff" />
+                            <path d="M25,50 85,20 85,80 25,50z" fill="#ffffff" />
+                        </g>
                     </svg>
                 </div>
             </button>
